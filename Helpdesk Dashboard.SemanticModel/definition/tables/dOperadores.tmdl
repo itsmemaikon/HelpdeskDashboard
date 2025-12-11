@@ -1,0 +1,66 @@
+table dOperadores
+	lineageTag: cc8b12a6-2acf-40a9-9a36-f8d415de1686
+
+	column 'ID Operador'
+		dataType: int64
+		formatString: 0
+		lineageTag: d39241e7-6f45-4e16-bc17-95a2df951ff4
+		summarizeBy: none
+		sourceColumn: ID Operador
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nome
+		dataType: string
+		lineageTag: 636054cb-f325-49cf-a8d6-af80e0fcea5d
+		summarizeBy: none
+		sourceColumn: Nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column Login
+		dataType: string
+		lineageTag: d4696c45-625f-4790-8e89-e13ec4a5b9d1
+		summarizeBy: none
+		sourceColumn: Login
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: 0273b6be-8165-4369-a3ac-71308bd079cc
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Equipe
+		dataType: string
+		lineageTag: a9a9afef-bb93-4516-a3ae-671dd4b36105
+		summarizeBy: none
+		sourceColumn: Equipe
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nível
+		dataType: string
+		lineageTag: d6fad436-5a06-4844-967e-8c91178d39fd
+		summarizeBy: none
+		sourceColumn: Nível
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dOperadores-f628f3eb-36da-43c3-a72e-0b205a6405f7 = m
+		mode: import
+		queryGroup: Dimensões
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents(pBaseDados & "\Base de Dados.xlsx"), null, true),
+				    fChamados_Sheet = Fonte{[Item="dOperadores",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(fChamados_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ID Operador", Int64.Type}, {"Nome", type text}, {"Login", type text}, {"Email", type text}, {"Equipe", type text}, {"Nível", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

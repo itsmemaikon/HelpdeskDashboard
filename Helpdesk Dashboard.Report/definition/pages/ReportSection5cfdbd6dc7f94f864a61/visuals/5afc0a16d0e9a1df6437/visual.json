@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "5afc0a16d0e9a1df6437",
+  "position": {
+    "x": 264.63547334058757,
+    "y": 420,
+    "z": 4000,
+    "height": 270,
+    "width": 250.00000000000006,
+    "tabOrder": 7000
+  },
+  "visualGroup": {
+    "displayName": "Gráfico Equipe",
+    "groupMode": "ScaleMode"
+  }
+}

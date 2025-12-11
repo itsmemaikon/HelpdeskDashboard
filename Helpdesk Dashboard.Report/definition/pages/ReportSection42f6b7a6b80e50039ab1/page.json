@@ -1,0 +1,250 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSection42f6b7a6b80e50039ab1",
+  "displayName": "Tabela Detalhada",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filtercb512e7404c6ac957e1d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dOperadores"
+              }
+            },
+            "Property": "Nome"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "Filterc145ce90b093c43e0bdd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dMotivo"
+              }
+            },
+            "Property": "Equipe"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "Filterfd914fe604020c440462",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dMotivo"
+              }
+            },
+            "Property": "Motivos"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "Filterf06b2bff8060ec8e571e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dCalendario"
+              }
+            },
+            "Property": "Ano"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "Filter81a6090040e7ae8b6b9c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dCalendario"
+              }
+            },
+            "Property": "Nome do Mês"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "Filterf714498c01117c0d3948",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dUsuario"
+              }
+            },
+            "Property": "Departamento"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "Filter4ef30fe047119dd1ac00",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dUsuario"
+              }
+            },
+            "Property": "Nome Usuário"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "Pod",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "Param_Filtercb512e7404c6ac957e1d",
+        "boundFilter": "Filtercb512e7404c6ac957e1d",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dOperadores"
+              }
+            },
+            "Property": "Nome"
+          }
+        }
+      },
+      {
+        "name": "Param_Filterc145ce90b093c43e0bdd",
+        "boundFilter": "Filterc145ce90b093c43e0bdd",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dMotivo"
+              }
+            },
+            "Property": "Equipe"
+          }
+        }
+      },
+      {
+        "name": "Param_Filterfd914fe604020c440462",
+        "boundFilter": "Filterfd914fe604020c440462",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dMotivo"
+              }
+            },
+            "Property": "Motivos"
+          }
+        }
+      },
+      {
+        "name": "Param_Filterf06b2bff8060ec8e571e",
+        "boundFilter": "Filterf06b2bff8060ec8e571e",
+        "asAggregation": true,
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dCalendario"
+              }
+            },
+            "Property": "Ano"
+          }
+        }
+      },
+      {
+        "name": "Param_Filter81a6090040e7ae8b6b9c",
+        "boundFilter": "Filter81a6090040e7ae8b6b9c",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dCalendario"
+              }
+            },
+            "Property": "Nome do Mês"
+          }
+        }
+      },
+      {
+        "name": "Param_Filterf714498c01117c0d3948",
+        "boundFilter": "Filterf714498c01117c0d3948",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dUsuario"
+              }
+            },
+            "Property": "Departamento"
+          }
+        }
+      },
+      {
+        "name": "Param_Filter4ef30fe047119dd1ac00",
+        "boundFilter": "Filter4ef30fe047119dd1ac00",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dUsuario"
+              }
+            },
+            "Property": "Nome Usuário"
+          }
+        }
+      }
+    ]
+  },
+  "type": "Drillthrough",
+  "visualInteractions": [
+    {
+      "source": "2102b51b4d4ebc3c4c6d",
+      "target": "04a6b8640e673de5a0ca",
+      "type": "NoFilter"
+    },
+    {
+      "source": "45f895e12c4410203b64",
+      "target": "04a6b8640e673de5a0ca",
+      "type": "NoFilter"
+    },
+    {
+      "source": "04a6b8640e673de5a0ca",
+      "target": "45f895e12c4410203b64",
+      "type": "NoFilter"
+    },
+    {
+      "source": "04a6b8640e673de5a0ca",
+      "target": "6c311c81ba8e308d9ea8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "45f895e12c4410203b64",
+      "target": "0dbab04e09075db020b4",
+      "type": "NoFilter"
+    }
+  ]
+}

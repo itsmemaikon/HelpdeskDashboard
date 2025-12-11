@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "c9797cbdcaaef38fea84",
+  "position": {
+    "x": 885.2863436123348,
+    "y": 420,
+    "z": 2000,
+    "height": 270,
+    "width": 365.39207048458138,
+    "tabOrder": 9000
+  },
+  "visualGroup": {
+    "displayName": "Gráfico Departamento",
+    "groupMode": "ScaleMode"
+  }
+}

@@ -1,0 +1,321 @@
+table dCalendario
+	lineageTag: ed129037-105b-4f1a-878f-33942813b9d9
+
+	column Data
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 9c8d87b3-36da-43d6-982e-ba9a723bca8f
+		summarizeBy: none
+		sourceColumn: Data
+
+		variation Variation
+			isDefault
+			relationship: dd029a47-b8cf-425a-a0d2-6cec804af579
+			defaultHierarchy: LocalDateTable_3b1bb79c-352b-4e1f-ae6e-800313d878cb.'Hierarquia de datas'
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Dia
+		dataType: int64
+		formatString: 0
+		lineageTag: eb5dd5b0-f64d-4a2e-840b-5c00d104e223
+		summarizeBy: sum
+		sourceColumn: Dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia da Semana'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6dcb018d-d35e-405c-b47a-c7ec3d61a555
+		summarizeBy: sum
+		sourceColumn: Dia da Semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome do Dia'
+		dataType: string
+		lineageTag: ca36a5aa-562a-4840-8c2b-be473c7d3363
+		summarizeBy: none
+		sourceColumn: Nome do Dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Início da Semana'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 708ea6a1-8e14-456f-bad4-3ee02d4220b3
+		summarizeBy: none
+		sourceColumn: Início da Semana
+
+		variation Variation
+			isDefault
+			relationship: ab193752-ea2e-420a-b129-94a1dd8b8a5b
+			defaultHierarchy: LocalDateTable_d08dbfb0-8265-4104-8257-4045599c7627.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Fim da Semana'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: be3c5201-a0ab-4bfe-9024-7d685e721933
+		summarizeBy: none
+		sourceColumn: Fim da Semana
+
+		variation Variation
+			isDefault
+			relationship: 92d3d1c6-7ca8-4e07-a67e-fc9d458baa5b
+			defaultHierarchy: LocalDateTable_c3c6175a-7f7d-4dd0-befc-b57c2bef8962.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Semana do Mês'
+		dataType: int64
+		formatString: 0
+		lineageTag: e2b7d295-d005-4e5e-9574-29597a1de3ca
+		summarizeBy: sum
+		sourceColumn: Semana do Mês
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana do Ano'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d0ce7cc-f2a3-4b99-9f5f-344237bcc3d9
+		summarizeBy: sum
+		sourceColumn: Semana do Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mês
+		dataType: int64
+		formatString: 0
+		lineageTag: 51dbad9f-5bcc-49d4-ac67-d6751573d269
+		summarizeBy: sum
+		sourceColumn: Mês
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome do Mês'
+		dataType: string
+		lineageTag: ed120565-be5d-4b42-b5c5-00517d362d4b
+		summarizeBy: none
+		sourceColumn: Nome do Mês
+		sortByColumn: Mês
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome do Mês Abrev'
+		dataType: string
+		lineageTag: a7e4b014-b6c5-48c3-8942-86b47a9eecba
+		summarizeBy: none
+		sourceColumn: Nome do Mês Abrev
+		sortByColumn: Mês
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dias do Mês'
+		dataType: int64
+		formatString: 0
+		lineageTag: 23ce6cd2-1cb5-406d-a6d2-234f76415043
+		summarizeBy: sum
+		sourceColumn: Dias do Mês
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Início do Mês'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 318deb29-97d9-47e3-8682-a2055c00da6b
+		summarizeBy: none
+		sourceColumn: Início do Mês
+
+		variation Variation
+			isDefault
+			relationship: 8c16fa7f-0ef7-4e9a-a49c-4ff5a00f5ca6
+			defaultHierarchy: LocalDateTable_59edc601-5151-48fc-94f5-44cc29f208d0.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Fim do Mês'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9e54a446-23c1-4f93-96a0-778057487726
+		summarizeBy: none
+		sourceColumn: Fim do Mês
+
+		variation Variation
+			isDefault
+			relationship: 55951ac1-dab6-448f-a63c-39f8ce9a217c
+			defaultHierarchy: LocalDateTable_0074c118-dab5-4c69-8e1d-e3055ee31b7e.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Trimestre
+		dataType: string
+		lineageTag: 691d1d4a-3866-4ef4-b670-a927ea05811e
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Início do Trimestre'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 161a7922-7850-4936-b2e6-74e70cf7d538
+		summarizeBy: none
+		sourceColumn: Início do Trimestre
+
+		variation Variation
+			isDefault
+			relationship: f591b1eb-e1ab-445c-beed-0d707a2d043a
+			defaultHierarchy: LocalDateTable_95ae17ad-bee8-413c-97b1-bece32179a61.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Fim do Trimestre'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 92183d9f-6844-40ac-b0cb-bbe1109e72d4
+		summarizeBy: none
+		sourceColumn: Fim do Trimestre
+
+		variation Variation
+			isDefault
+			relationship: 0df757aa-0c3f-4d30-86cc-d07d661b429f
+			defaultHierarchy: LocalDateTable_9a970f8b-a778-4f86-a773-334fc68a282c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 11be40e5-3a6a-485a-a00a-b84d5aac9b8f
+		summarizeBy: sum
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês Abrev/Ano'
+		dataType: string
+		lineageTag: 1543a564-def7-482b-b75e-92110a8d50b0
+		summarizeBy: none
+		sourceColumn: Mês Abrev/Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ano Mês'
+		dataType: int64
+		formatString: 0
+		lineageTag: ae35f3ec-35ca-4271-86bf-02e11d6a978a
+		summarizeBy: sum
+		sourceColumn: Ano Mês
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Contagem Mês'
+		dataType: int64
+		formatString: 0
+		lineageTag: 274c29c0-0987-49cd-aa2b-77d711c0086c
+		summarizeBy: sum
+		sourceColumn: Contagem Mês
+
+		annotation SummarizationSetBy = Automatic
+
+	column Feriado
+		dataType: string
+		lineageTag: aca71a73-0ec8-4876-b801-c0fcdd020d85
+		summarizeBy: none
+		sourceColumn: Feriado
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia Útil'
+		dataType: string
+		lineageTag: 955543ef-5a36-45bc-9f56-968f7a47114b
+		summarizeBy: none
+		sourceColumn: Dia Útil
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Futura'
+		dataType: string
+		lineageTag: f7591b62-734e-49ec-b22d-9d1d60580b5c
+		summarizeBy: none
+		sourceColumn: Data Futura
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Dia'
+		dataType: string
+		lineageTag: 4ec77284-de75-4425-a666-e54c7df24b5e
+		summarizeBy: none
+		sourceColumn: Tipo Dia
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCalendario-dad76f5c-d7a0-4ecc-87eb-1dfa7f2a15cf = m
+		mode: import
+		queryGroup: Dimensões
+		source =
+				let
+				    DataMin = List.Min(fChamados[Data Abertura]),
+				    DataMax = List.Max(fChamados[Data Abertura]),
+				    DataInicial = Date.StartOfYear(DataMin),
+				    DataFinal = Date.EndOfYear(DataMax),
+				    ContagemDias = Duration.Days(DataFinal - DataInicial) + 1,
+				    Fonte = List.Dates(DataInicial,ContagemDias,#duration(1,0,0,0)),
+				    #"Convertido para Tabela" = Table.FromList(Fonte, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Convertido para Tabela",{{"Column1", "Data"}}),
+				    #"Dia Inserido" = Table.AddColumn(#"Colunas Renomeadas", "Dia", each Date.Day([Data]), Int64.Type),
+				    #"Dia da Semana Inserido" = Table.AddColumn(#"Dia Inserido", "Dia da Semana", each Date.DayOfWeek([Data]), Int64.Type),
+				    #"Nome do Dia Inserido" = Table.AddColumn(#"Dia da Semana Inserido", "Nome do Dia", each Date.DayOfWeekName([Data]), type text),
+				    #"Início da Semana Inserido" = Table.AddColumn(#"Nome do Dia Inserido", "Início da Semana", each Date.StartOfWeek([Data]), type date),
+				    #"Fim da Semana Inserido" = Table.AddColumn(#"Início da Semana Inserido", "Fim da Semana", each Date.EndOfWeek([Data]), type date),
+				    #"Semana do Mês Inserida" = Table.AddColumn(#"Fim da Semana Inserido", "Semana do Mês", each Date.WeekOfMonth([Data]), Int64.Type),
+				    #"Semana do Ano Inserida" = Table.AddColumn(#"Semana do Mês Inserida", "Semana do Ano", each Date.WeekOfYear([Data]), Int64.Type),
+				    #"Mês Inserido" = Table.AddColumn(#"Semana do Ano Inserida", "Mês", each Date.Month([Data]), Int64.Type),
+				    #"Nome do Mês Inserido" = Table.AddColumn(#"Mês Inserido", "Nome do Mês", each Date.MonthName([Data]), type text),
+				    #"Primeiros Caracteres Inseridos" = Table.AddColumn(#"Nome do Mês Inserido", "Nome do Mês Abrev", each Text.Start([Nome do Mês], 3), type text),
+				    #"Dias inseridos no Mês" = Table.AddColumn(#"Primeiros Caracteres Inseridos", "Dias do Mês", each Date.DaysInMonth([Data]), Int64.Type),
+				    #"Início do Mês Inserido" = Table.AddColumn(#"Dias inseridos no Mês", "Início do Mês", each Date.StartOfMonth([Data]), type date),
+				    #"Fim do Mês Inserido" = Table.AddColumn(#"Início do Mês Inserido", "Fim do Mês", each Date.EndOfMonth([Data]), type date),
+				    #"Trimestre Inserido" = Table.AddColumn(#"Fim do Mês Inserido", "Trimestre", each "T" & Number.ToText(Date.QuarterOfYear([Data])), type text),
+				    #"Início do Trimestre Inserido" = Table.AddColumn(#"Trimestre Inserido", "Início do Trimestre", each Date.StartOfQuarter([Data]), type date),
+				    #"Fim do Trimestre Inserido" = Table.AddColumn(#"Início do Trimestre Inserido", "Fim do Trimestre", each Date.EndOfQuarter([Data]), type date),
+				    #"Ano Inserido" = Table.AddColumn(#"Fim do Trimestre Inserido", "Ano", each Date.Year([Data]), Int64.Type),
+				    #"Mês Abrev/Ano Inserida" = Table.AddColumn(#"Ano Inserido", "Mês Abrev/Ano", each Text.Combine({[Nome do Mês Abrev], Text.From([Ano], "pt-BR")}, "/"), type text),
+				    #"AnoMês Inserido" = Table.AddColumn(#"Mês Abrev/Ano Inserida", "Ano Mês", each ([Ano] * 100) + [Mês]),
+				    #"Contagem Mês Adicionada" = Table.AddColumn(#"AnoMês Inserido", "Contagem Mês", each ([Ano] - Date.Year(DataInicial)) * 12 + [Mês], type number),
+				    #"Colocar Cada Palavra Em Maiúscula" = Table.TransformColumns(#"Contagem Mês Adicionada",{{"Nome do Dia", Text.Proper, type text}, {"Nome do Mês", Text.Proper, type text}, {"Nome do Mês Abrev", Text.Proper, type text}, {"Mês Abrev/Ano", Text.Proper, type text}}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Colocar Cada Palavra Em Maiúscula",{{"Data", type date}, {"Dia", Int64.Type}, {"Dia da Semana", Int64.Type}, {"Nome do Dia", type text}, {"Início da Semana", type date}, {"Fim da Semana", type date}, {"Semana do Mês", Int64.Type}, {"Semana do Ano", Int64.Type}, {"Mês", Int64.Type}, {"Nome do Mês", type text}, {"Nome do Mês Abrev", type text}, {"Dias do Mês", Int64.Type}, {"Início do Mês", type date}, {"Fim do Mês", type date}, {"Trimestre", type text}, {"Início do Trimestre", type date}, {"Fim do Trimestre", type date}, {"Ano", Int64.Type}, {"Mês Abrev/Ano", type text}, {"Ano Mês", Int64.Type}, {"Contagem Mês", Int64.Type}}),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Tipo Alterado", {"Data"}, dFeriados, {"Data"}, "dFeriados", JoinKind.LeftOuter),
+				    #"dFeriados Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "dFeriados", {"Feriado"}, {"Feriado"}),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"dFeriados Expandido", "Dia Útil", each if [Dia da Semana] = 0 then "Não" else if [Dia da Semana] = 6 then "Não" else if [Feriado] <> null then "Não" else "Sim", type text),
+				    #"Coluna Condicional Adicionada1" = Table.AddColumn(#"Coluna Condicional Adicionada", "Data Futura", each if [Data] <= Date.From(DateTime.LocalNow()) then "Não" else "Sim", type text),
+				    #"Coluna Condicional Adicionada2" = Table.AddColumn(#"Coluna Condicional Adicionada1", "Tipo Dia", each if [Dia da Semana] = 0 then "Final de Semana" else if [Dia da Semana] = 6 then "Final de Semana" else if [Feriado] <> null then "Feriado" else "Dia Útil", type text)
+				in
+				    #"Coluna Condicional Adicionada2"
+
+	annotation PBI_ResultType = Table
+

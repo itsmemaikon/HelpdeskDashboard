@@ -1,0 +1,196 @@
+table fChamados
+	lineageTag: 2e0de8b9-475c-45c5-bef5-570c232d76f1
+
+	column 'ID Chamado'
+		dataType: int64
+		formatString: 0
+		lineageTag: 01bf5be9-e0df-4e58-a070-f8f0f6ad9b22
+		summarizeBy: sum
+		sourceColumn: ID Chamado
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Motivo'
+		dataType: int64
+		formatString: 0
+		lineageTag: 99fe4a7a-828e-414e-ad1f-357744e4545a
+		summarizeBy: none
+		sourceColumn: ID Motivo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Tempo Abertura'
+		dataType: dateTime
+		formatString: dd/mm/yy hh:nn
+		lineageTag: e554b164-1c65-4009-b5a7-01468dabfbe4
+		summarizeBy: none
+		sourceColumn: Data Tempo Abertura
+
+		variation Variation
+			isDefault
+			relationship: 52fab06a-6e19-409a-b491-1e350c4c9de6
+			defaultHierarchy: LocalDateTable_52a3fbad-6d7f-46cd-8660-ac932906cfa1.'Hierarquia de datas'
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'ID Status'
+		dataType: int64
+		formatString: 0
+		lineageTag: a6161b71-d91b-4d8e-84d7-084b840f274f
+		summarizeBy: none
+		sourceColumn: ID Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Usuário'
+		dataType: int64
+		formatString: 0
+		lineageTag: 616d6a4b-ac6f-42a6-8f52-235dc1b30ada
+		summarizeBy: none
+		sourceColumn: ID Usuário
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Operador'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5afc3a71-5a18-4bf6-b3ad-520fa9ad6dae
+		summarizeBy: none
+		sourceColumn: ID Operador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Tempo Encerrado'
+		dataType: dateTime
+		formatString: dd/mm/yy hh:nn
+		lineageTag: ab6e0535-37de-4dca-99ee-a55545719b4b
+		summarizeBy: none
+		sourceColumn: Data Tempo Encerrado
+
+		variation Variation
+			isDefault
+			relationship: 22d7af8e-424a-4785-b47f-82df6b2908f8
+			defaultHierarchy: LocalDateTable_74607b73-ac93-425c-8b2f-4655cb2f841e.'Hierarquia de datas'
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Data Abertura'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 1ffff091-598a-4da6-9313-159f0a69d043
+		summarizeBy: none
+		sourceColumn: Data Abertura
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Hora Abertura'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: e7776ba4-581c-448f-bea0-bfda29263c81
+		summarizeBy: none
+		sourceColumn: Hora Abertura
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'Data Encerrado'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: a64a058e-0f04-437f-9d58-8126fa861c0f
+		summarizeBy: none
+		sourceColumn: Data Encerrado
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Hora Encerrado'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: d36a8c86-f4ba-4f0b-bd26-2d53b494f91f
+		summarizeBy: none
+		sourceColumn: Hora Encerrado
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'SLA Realizado'
+		dataType: double
+		lineageTag: a888784b-a071-4b39-ba4e-26ff14354ffc
+		summarizeBy: sum
+		sourceColumn: SLA Realizado
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'SLA Tempo (min)'
+		dataType: int64
+		formatString: 0
+		lineageTag: e0e38dd0-c846-4093-8012-769e68826641
+		summarizeBy: sum
+		sourceColumn: SLA Tempo (min)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dif. SLA'
+		dataType: double
+		lineageTag: a67f65e0-1f22-4222-815b-046aef948cfe
+		summarizeBy: sum
+		sourceColumn: Dif. SLA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'SLA Atendido'
+		dataType: int64
+		formatString: 0
+		lineageTag: 36e9b7a2-6f9e-434a-99ba-355682377e8a
+		summarizeBy: sum
+		sourceColumn: SLA Atendido
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fChamados-591d42c5-fece-4a7c-97cb-7f829c98eab2 = m
+		mode: import
+		queryGroup: Fatos
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents(pBaseDados & "\Base de Dados.xlsx"), null, true),
+				    fChamados_Sheet = Fonte{[Item="fChamados",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(fChamados_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ID Chamado", Int64.Type}, {"ID Motivo", Int64.Type}, {"ID Usuário", Int64.Type}, {"ID Operador", Int64.Type}, {"ID Status", Int64.Type}, {"Data Abertura", type datetime}, {"Data Encerrado", type datetime}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado",{{"Data Abertura", "Data Tempo Abertura"}, {"Data Encerrado", "Data Tempo Encerrado"}}),
+				    #"Data Inserida" = Table.AddColumn(#"Colunas Renomeadas", "Data Abertura", each DateTime.Date([Data Tempo Abertura]), type date),
+				    #"Hora Inserida" = Table.AddColumn(#"Data Inserida", "Hora Abertura", each DateTime.Time([Data Tempo Abertura]), type time),
+				    #"Data Inserida1" = Table.AddColumn(#"Hora Inserida", "Data Encerrado", each DateTime.Date([Data Tempo Encerrado]), type date),
+				    #"Hora Inserida1" = Table.AddColumn(#"Data Inserida1", "Hora Encerrado", each DateTime.Time([Data Tempo Encerrado]), type time),
+				    #"Subtração da Hora Inserida" = Table.AddColumn(#"Hora Inserida1", "SLA Realizado", each [Data Tempo Encerrado] - [Data Tempo Abertura], type duration),
+				    #"Total de Minutos Calculados" = Table.TransformColumns(#"Subtração da Hora Inserida",{{"SLA Realizado", Duration.TotalMinutes, type number}}),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Total de Minutos Calculados", {"ID Motivo"}, dMotivo, {"ID Motivos"}, "dMotivo", JoinKind.LeftOuter),
+				    #"dMotivo Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "dMotivo", {"SLA Tempo (min)"}, {"SLA Tempo (min)"}),
+				    #"Subtração Inserida" = Table.AddColumn(#"dMotivo Expandido", "Dif. SLA", each [#"SLA Tempo (min)"] - [SLA Realizado], type number),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Subtração Inserida", "SLA Atendido", each if [Dif. SLA] = null then null else if [Dif. SLA] > 0 then 1 else if [Dif. SLA] < 0 then 0 else null, type number),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Personalização Adicionada",{{"ID Chamado", Int64.Type}, {"ID Motivo", Int64.Type}, {"ID Usuário", Int64.Type}, {"ID Operador", Int64.Type}, {"ID Status", Int64.Type}, {"Data Tempo Abertura", type datetime}, {"Data Tempo Encerrado", type datetime}, {"Data Abertura", type date}, {"Hora Abertura", type time}, {"Data Encerrado", type date}, {"Hora Encerrado", type time}, {"SLA Realizado", type number}, {"SLA Tempo (min)", Int64.Type}, {"Dif. SLA", type number}, {"SLA Atendido", Int64.Type}})
+				in
+				    #"Tipo Alterado1"
+
+	annotation PBI_ResultType = Table
+

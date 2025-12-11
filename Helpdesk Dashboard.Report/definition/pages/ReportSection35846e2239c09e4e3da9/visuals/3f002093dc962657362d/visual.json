@@ -1,0 +1,79 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "3f002093dc962657362d",
+  "position": {
+    "x": 0.66102997694081722,
+    "y": 40.338201383551109,
+    "z": 7000,
+    "height": 100.35357417371253,
+    "width": 209.56187548039969,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "PBI_CV_81BBAD08_3ADD_466C_8819_9FACA21A6B8F",
+    "query": {
+      "queryState": {
+        "imageUrl": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Logo Contato"
+                }
+              },
+              "queryRef": "Medidas.Logo Contato",
+              "nativeQueryRef": "Logo Contato"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Logo'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "70c2d433556b08e32a82"
+}

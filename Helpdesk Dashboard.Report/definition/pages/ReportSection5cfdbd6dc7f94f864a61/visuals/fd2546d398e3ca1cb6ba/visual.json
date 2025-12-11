@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "fd2546d398e3ca1cb6ba",
+  "position": {
+    "x": 534.84221980413486,
+    "y": 420,
+    "z": 3000,
+    "height": 270,
+    "width": 330.09793253536452,
+    "tabOrder": 8000
+  },
+  "visualGroup": {
+    "displayName": "Gráfico Operador",
+    "groupMode": "ScaleMode"
+  }
+}

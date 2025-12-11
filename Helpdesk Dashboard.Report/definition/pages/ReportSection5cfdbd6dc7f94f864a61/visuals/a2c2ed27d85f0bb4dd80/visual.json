@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "a2c2ed27d85f0bb4dd80",
+  "position": {
+    "x": 765,
+    "y": 30,
+    "z": 8000,
+    "height": 100.37004405286343,
+    "width": 230.98784194528886,
+    "tabOrder": 2000
+  },
+  "visualGroup": {
+    "displayName": "Cartão Encerrados",
+    "groupMode": "ScaleMode"
+  }
+}

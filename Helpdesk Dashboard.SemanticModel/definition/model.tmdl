@@ -1,0 +1,48 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup 'Parâmetros, Funções e Transformações'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup Fatos
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup Dimensões
+
+	annotation PBI_QueryGroupOrder = 2
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["pBaseDados","fChamados","dCalendario","dMetrica","dMotivo","dStatus","dUsuario","dOperadores","dDepartamentos","dFeriados","dSLA","Medidas","dTema"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_2c5d0268-774b-4061-a3f3-3fe1e94143d2
+ref table fChamados
+ref table dCalendario
+ref table LocalDateTable_3b1bb79c-352b-4e1f-ae6e-800313d878cb
+ref table LocalDateTable_d08dbfb0-8265-4104-8257-4045599c7627
+ref table LocalDateTable_c3c6175a-7f7d-4dd0-befc-b57c2bef8962
+ref table LocalDateTable_59edc601-5151-48fc-94f5-44cc29f208d0
+ref table LocalDateTable_0074c118-dab5-4c69-8e1d-e3055ee31b7e
+ref table LocalDateTable_95ae17ad-bee8-413c-97b1-bece32179a61
+ref table LocalDateTable_9a970f8b-a778-4f86-a773-334fc68a282c
+ref table dMotivo
+ref table dStatus
+ref table dUsuario
+ref table Medidas
+ref table dOperadores
+ref table LocalDateTable_74607b73-ac93-425c-8b2f-4655cb2f841e
+ref table LocalDateTable_52a3fbad-6d7f-46cd-8660-ac932906cfa1
+ref table dMetrica
+ref table dTema
+
+ref cultureInfo pt-BR
+

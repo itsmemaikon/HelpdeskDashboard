@@ -1,0 +1,69 @@
+table dUsuario
+	lineageTag: cd8e444c-62f5-4211-992c-ab898ff3430f
+
+	column Login
+		dataType: string
+		lineageTag: 627c409b-95e5-4462-ae6b-2759af344325
+		summarizeBy: none
+		sourceColumn: Login
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Usuário'
+		dataType: int64
+		formatString: 0
+		lineageTag: 14bd3feb-dacd-4176-9e08-4333b90a7053
+		summarizeBy: none
+		sourceColumn: ID Usuário
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome Usuário'
+		dataType: string
+		lineageTag: 89a0da1e-32c3-40c7-84f7-08b9502d54a1
+		summarizeBy: none
+		sourceColumn: Nome Usuário
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: 61bd3f63-460f-4e4a-b3b0-95929b78db40
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Departamento'
+		dataType: int64
+		formatString: 0
+		lineageTag: b5b74927-7003-4b6d-ba14-44cf253e8e3d
+		summarizeBy: none
+		sourceColumn: ID Departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Departamento
+		dataType: string
+		lineageTag: 3b7f42e6-6d3c-45e5-a8c1-0566b2cb3d9f
+		summarizeBy: none
+		sourceColumn: Departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dUsuario-cd8cfd73-d6c4-4e8a-9f37-5bf776257cb8 = m
+		mode: import
+		queryGroup: Dimensões
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents(pBaseDados & "\Base de Dados.xlsx"), null, true),
+				    fChamados_Sheet = Fonte{[Item="dUsuários",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(fChamados_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ID Usuário", Int64.Type}, {"Nome Usuário", type text}, {"Login", type text}, {"Email", type text}, {"ID Departamento", Int64.Type}}),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Tipo Alterado", {"ID Departamento"}, dDepartamentos, {"ID Departamento"}, "dDepartamentos", JoinKind.LeftOuter),
+				    #"dDepartamentos Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "dDepartamentos", {"Departamento"}, {"Departamento"})
+				in
+				    #"dDepartamentos Expandido"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,160 @@
+table Medidas
+	lineageTag: 0a25caf9-1cce-4bc4-bd65-bcfd060cddd8
+
+	measure 'Qtd Criados' = DISTINCTCOUNT(fChamados[ID Chamado])
+		formatString: #,0
+		displayFolder: Geral
+		lineageTag: c94602ed-72cf-45ad-93c6-daab805a7432
+
+		changedProperty = FormatString
+
+	measure 'Qtd Encerrados' = ```
+			
+			CALCULATE(DISTINCTCOUNT(fChamados[ID Chamado]), USERELATIONSHIP(dCalendario[Data],fChamados[Data Encerrado])) - 
+			CALCULATE(COUNT(fChamados[ID Chamado]), fChamados[Data Encerrado] = BLANK())
+			```
+		formatString: #,0
+		displayFolder: Geral
+		lineageTag: 8cd0ae40-b822-4a69-aa22-da5efdd8dc3b
+
+		changedProperty = FormatString
+
+	measure 'Qtd Abertos' =
+			
+			CALCULATE(COUNT(fChamados[ID Chamado]), fChamados[Data Encerrado] = BLANK())
+		formatString: #,0
+		displayFolder: Geral
+		lineageTag: 4dc8e2f6-ad62-43c1-80ba-1a949cbd6259
+
+		changedProperty = FormatString
+
+	measure 'Qtd Criados YoY' = CALCULATE([Qtd Criados], SAMEPERIODLASTYEAR(dCalendario[Data]))
+		formatString: #,0
+		displayFolder: YoY
+		lineageTag: 6a126abf-fbd3-429e-b05a-ebdf4b606e6b
+
+		changedProperty = FormatString
+
+	measure '% Qtd Criados YoY' = DIVIDE(([Qtd Criados]-[Qtd Criados YoY]),[Qtd Criados YoY],BLANK())
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: YoY
+		lineageTag: b4a29a55-f000-4c5d-9368-bbd7c398d29a
+
+		changedProperty = FormatString
+
+	measure 'Qtd Abertos YoY' = CALCULATE([Qtd Abertos], SAMEPERIODLASTYEAR(dCalendario[Data]))
+		formatString: #,0
+		displayFolder: YoY
+		lineageTag: 9547c10c-3708-4823-8ea5-ed90e34e0c27
+
+		changedProperty = FormatString
+
+	measure '% Qtd Abertos YoY' = DIVIDE(([Qtd Abertos]-[Qtd Abertos YoY]),[Qtd Abertos YoY],0)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: YoY
+		lineageTag: 71ed947f-1883-4c97-b596-ba95c3531d64
+
+		changedProperty = FormatString
+
+	measure 'Qtd Encerrados YoY' = CALCULATE([Qtd Encerrados], SAMEPERIODLASTYEAR(dCalendario[Data]))
+		formatString: #,0
+		displayFolder: YoY
+		lineageTag: 9eccf0f1-8053-4a11-993b-66c81066b508
+
+		changedProperty = FormatString
+
+	measure '% Qtd Encerrados YoY' = DIVIDE(([Qtd Encerrados]-[Qtd Encerrados YoY]),[Qtd Encerrados YoY],BLANK())
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: YoY
+		lineageTag: 9b9994de-d286-48fb-9488-54dfb9f4ad6d
+
+		changedProperty = FormatString
+
+	measure 'SLA Atendido' = CALCULATE(COUNTROWS(fChamados), fChamados[SLA Atendido] = 1)
+		formatString: #,0
+		displayFolder: Geral
+		lineageTag: df684cb3-5b76-46d1-b847-45ec2959cb97
+
+		changedProperty = FormatString
+
+	measure 'SLA Atendido YoY' = CALCULATE([SLA Atendido], SAMEPERIODLASTYEAR(dCalendario[Data]))
+		formatString: #,0
+		displayFolder: YoY
+		lineageTag: 5aa89aba-e572-4d76-96f5-b7651b163254
+
+		changedProperty = FormatString
+
+	measure '% SLA Atendido YoY' = DIVIDE(([SLA Atendido]-[SLA Atendido YoY]),[SLA Atendido YoY],0)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: YoY
+		lineageTag: 6a080e83-08b8-4f46-94ea-b69500216668
+
+		changedProperty = FormatString
+
+	measure Métrica = ```
+			
+			VAR vMetricaSelec = MAX(dMetrica[ID Métrica])
+			VAR vMetrica = 
+			SWITCH(TRUE(),
+			    vMetricaSelec = 1, [Qtd Criados],
+			    vMetricaSelec = 2, [Qtd Encerrados],
+			    vMetricaSelec = 3, [Qtd Abertos],
+			    vMetricaSelec = 4, [SLA Atendido],
+			    vMetricaSelec = 5, [SLA Extrapolado]
+			)
+			RETURN
+			vMetrica
+			```
+		formatString: #,0
+		displayFolder: Geral
+		lineageTag: 5aba9b63-e917-4a0f-8521-0ec41dd7b76c
+
+		changedProperty = FormatString
+
+	measure 'SLA Extrapolado' = CALCULATE(COUNTROWS(fChamados), fChamados[SLA Atendido] = 0)
+		formatString: 0
+		displayFolder: Geral
+		lineageTag: 68178a9f-4a41-4575-a9e6-3289db2d7630
+
+	measure 'Cor Texto' = SELECTEDVALUE(dTema[Cor Texto])
+		displayFolder: Geral
+		lineageTag: 57e784c4-9c01-4a71-850e-6ec2789f4e36
+
+	measure 'Medida Vazia' = ""
+		lineageTag: 372b58a6-c7be-47af-b197-22a269ffd375
+
+	measure 'Métrica YoY' = CALCULATE([Métrica], SAMEPERIODLASTYEAR(dCalendario[Data]))
+		formatString: 0
+		displayFolder: YoY
+		lineageTag: 1bb9e462-1b5b-4739-9de1-c73d0aa82251
+
+	measure 'Foto Contato' = "https://onedrive.live.com/embed?resid=E892E4616F7F4170%213005&authkey=%21AILYhrWuzFJCRKo&width=1310&height=1337"
+		displayFolder: Contato
+		lineageTag: 5f8611b7-b488-4f36-a7c6-06d34e1c61b3
+
+	measure 'Logo Contato' = "https://onedrive.live.com/embed?resid=E892E4616F7F4170%213006&authkey=%21ACC0S-FHQ54hBfk&width=462&height=190"
+		displayFolder: Contato
+		lineageTag: ce9278af-2597-4edd-a0b7-5b70f38bc4dc
+
+	column 'Coluna 1'
+		dataType: string
+		isHidden
+		lineageTag: 1d7892a3-ebc7-4f9a-bc97-90e1dd72662f
+		summarizeBy: none
+		sourceColumn: Coluna 1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Medidas-59f7ca26-bd00-431c-aad6-513adbce6849 = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

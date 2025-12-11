@@ -1,0 +1,70 @@
+relationship dd029a47-b8cf-425a-a0d2-6cec804af579
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dCalendario.Data
+	toColumn: LocalDateTable_3b1bb79c-352b-4e1f-ae6e-800313d878cb.Date
+
+relationship ab193752-ea2e-420a-b129-94a1dd8b8a5b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dCalendario.'Início da Semana'
+	toColumn: LocalDateTable_d08dbfb0-8265-4104-8257-4045599c7627.Date
+
+relationship 92d3d1c6-7ca8-4e07-a67e-fc9d458baa5b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dCalendario.'Fim da Semana'
+	toColumn: LocalDateTable_c3c6175a-7f7d-4dd0-befc-b57c2bef8962.Date
+
+relationship 8c16fa7f-0ef7-4e9a-a49c-4ff5a00f5ca6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dCalendario.'Início do Mês'
+	toColumn: LocalDateTable_59edc601-5151-48fc-94f5-44cc29f208d0.Date
+
+relationship 55951ac1-dab6-448f-a63c-39f8ce9a217c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dCalendario.'Fim do Mês'
+	toColumn: LocalDateTable_0074c118-dab5-4c69-8e1d-e3055ee31b7e.Date
+
+relationship f591b1eb-e1ab-445c-beed-0d707a2d043a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dCalendario.'Início do Trimestre'
+	toColumn: LocalDateTable_95ae17ad-bee8-413c-97b1-bece32179a61.Date
+
+relationship 0df757aa-0c3f-4d30-86cc-d07d661b429f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dCalendario.'Fim do Trimestre'
+	toColumn: LocalDateTable_9a970f8b-a778-4f86-a773-334fc68a282c.Date
+
+relationship 2092a746-17e1-47d1-b105-c21b2f47a879
+	fromColumn: fChamados.'ID Status'
+	toColumn: dStatus.'ID Status'
+
+relationship 22d7af8e-424a-4785-b47f-82df6b2908f8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fChamados.'Data Tempo Encerrado'
+	toColumn: LocalDateTable_74607b73-ac93-425c-8b2f-4655cb2f841e.Date
+
+relationship 40a657f4-b27a-43c4-ae17-0cb1144ca82a
+	fromColumn: fChamados.'ID Usuário'
+	toColumn: dUsuario.'ID Usuário'
+
+relationship 550372d1-3eca-44a3-87d6-c53e06c30f63
+	fromColumn: fChamados.'ID Operador'
+	toColumn: dOperadores.'ID Operador'
+
+relationship cae24cbb-ebd5-4f0c-aab0-8ea16aba4343
+	fromColumn: fChamados.'Data Abertura'
+	toColumn: dCalendario.Data
+
+relationship 52fab06a-6e19-409a-b491-1e350c4c9de6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fChamados.'Data Tempo Abertura'
+	toColumn: LocalDateTable_52a3fbad-6d7f-46cd-8660-ac932906cfa1.Date
+
+relationship 0ca9bfe2-009e-4648-8444-193e36691581
+	isActive: false
+	fromColumn: fChamados.'Data Encerrado'
+	toColumn: dCalendario.Data
+
+relationship dd773b8e-1c60-4d44-bea3-2690eb4f492f
+	fromColumn: fChamados.'ID Motivo'
+	toColumn: dMotivo.'ID Motivos'
+

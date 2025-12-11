@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "daa4e96e9de58b77c005",
+  "position": {
+    "x": 653.02578018995928,
+    "y": 30.449339207048457,
+    "z": 7000,
+    "height": 100.47557918250541,
+    "width": 597.72503591450209,
+    "tabOrder": 4000
+  },
+  "visualGroup": {
+    "displayName": "Cartão SLA Atendido",
+    "groupMode": "ScaleMode"
+  }
+}

@@ -1,0 +1,52 @@
+/// Diretório de Base de Dados
+expression pBaseDados = "Z:\POWER BI\Dashboards\Helpdesk Dashboard\BaseDados" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 334da401-8c3b-4fea-8391-31607520edb1
+	queryGroup: 'Parâmetros, Funções e Transformações'
+
+	annotation PBI_ResultType = Text
+
+expression dFeriados =
+		let
+		    Fonte = Excel.Workbook(Web.Contents("https://www.anbima.com.br/feriados/arqs/feriados_nacionais.xls"), null, true),
+		    Plan2 = Fonte{[Name="Plan1"]}[Data],
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Plan2, [PromoteAllScalars=true]),
+		    #"Linhas Filtradas" = Table.SelectRows(#"Cabeçalhos Promovidos", each [Dia da Semana] <> null and [Dia da Semana] <> "")
+		in
+		    #"Linhas Filtradas"
+	lineageTag: cf30e862-cbd5-4f80-afe8-f01ff85c7c2e
+	queryGroup: Dimensões
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression dSLA =
+		let
+		    Fonte = Excel.Workbook(File.Contents(pBaseDados & "\Base de Dados.xlsx"), null, true),
+		    fChamados_Sheet = Fonte{[Item="dSLA",Kind="Sheet"]}[Data],
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(fChamados_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ID SLA", Int64.Type}, {"SLA Tempo (min)", Int64.Type}, {"SLA Descricao", type text}})
+		in
+		    #"Tipo Alterado"
+	lineageTag: 46774c7a-38cd-4c0e-810d-4d3be1287e2b
+	queryGroup: Dimensões
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression dDepartamentos =
+		let
+		    Fonte = Excel.Workbook(File.Contents(pBaseDados & "\Base de Dados.xlsx"), null, true),
+		    fChamados_Sheet = Fonte{[Item="dDepartamentos",Kind="Sheet"]}[Data],
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(fChamados_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ID Departamento", Int64.Type}, {"Departamento", type text}, {"Qtd Funcionários", Int64.Type}})
+		in
+		    #"Tipo Alterado"
+	lineageTag: deee5d74-8bea-4a9d-8cc0-275a6f27514e
+	queryGroup: Dimensões
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

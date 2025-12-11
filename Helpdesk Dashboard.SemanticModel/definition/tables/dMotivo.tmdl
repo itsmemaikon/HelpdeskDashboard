@@ -1,0 +1,78 @@
+table dMotivo
+	lineageTag: 74b83b59-6902-4c67-abe2-7a96cbeb1409
+
+	column 'ID SLA'
+		dataType: int64
+		formatString: 0
+		lineageTag: aaeae592-79d4-44e4-b790-4525e4cc29aa
+		summarizeBy: none
+		sourceColumn: ID SLA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SLA Tempo (min)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7cbf435c-ef0e-4373-aba5-9002879c7db3
+		summarizeBy: none
+		sourceColumn: SLA Tempo (min)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SLA Descricao'
+		dataType: string
+		lineageTag: 39c7abb3-8a72-4f31-8e32-0627732fee9c
+		summarizeBy: none
+		sourceColumn: SLA Descricao
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ID Motivos'
+		dataType: int64
+		formatString: 0
+		lineageTag: 507f3f90-4a9f-4ba5-8050-1a9ed1ae4aaa
+		summarizeBy: none
+		sourceColumn: ID Motivos
+
+		annotation SummarizationSetBy = Automatic
+
+	column Motivos
+		dataType: string
+		lineageTag: 64d7b939-ad62-496b-9cb9-8caf69b2d491
+		summarizeBy: none
+		sourceColumn: Motivos
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nível
+		dataType: string
+		lineageTag: a682196a-0200-409c-819a-d84c251985ae
+		summarizeBy: none
+		sourceColumn: Nível
+
+		annotation SummarizationSetBy = Automatic
+
+	column Equipe
+		dataType: string
+		lineageTag: 6aaf3807-426c-4a84-b83d-f36bc8ce62f0
+		summarizeBy: none
+		sourceColumn: Equipe
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dMotivo-3f608413-8038-4976-ace9-abe8af8dc960 = m
+		mode: import
+		queryGroup: Dimensões
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents(pBaseDados & "\Base de Dados.xlsx"), null, true),
+				    fChamados_Sheet = Fonte{[Item="dMotivos",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(fChamados_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ID Motivos", Int64.Type}, {"Motivos", type text}, {"Nível", type text}, {"Equipe", type text}, {"ID SLA", Int64.Type}}),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Tipo Alterado", {"ID SLA"}, dSLA, {"ID SLA"}, "dSLA", JoinKind.LeftOuter),
+				    #"dSLA Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "dSLA", {"SLA Tempo (min)", "SLA Descricao"}, {"SLA Tempo (min)", "SLA Descricao"})
+				in
+				    #"dSLA Expandido"
+
+	annotation PBI_ResultType = Table
+

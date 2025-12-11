@@ -1,0 +1,76 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "cae42983b2f066081067",
+  "position": {
+    "x": 0.97485699774309253,
+    "y": 139.71806329459503,
+    "z": 6000,
+    "height": 169.8159509202454,
+    "width": 150.1840490797546,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "PBI_CV_81BBAD08_3ADD_466C_8819_9FACA21A6B8F",
+    "query": {
+      "queryState": {
+        "imageUrl": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Foto Contato"
+                }
+              },
+              "queryRef": "Medidas.Foto Contato",
+              "nativeQueryRef": "Foto Contato"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "imageOptions": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "imageFit": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Foto'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "70c2d433556b08e32a82"
+}

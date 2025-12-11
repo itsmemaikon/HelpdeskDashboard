@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSection5cfdbd6dc7f94f864a61",
+  "displayName": "Análise Geral",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "aa2bb72e3d7bade6fea3",
+      "target": "f100ded58b6f627d5c48",
+      "type": "NoFilter"
+    },
+    {
+      "source": "1cf45a86aafc8180a539",
+      "target": "f100ded58b6f627d5c48",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f100ded58b6f627d5c48",
+      "target": "1cf45a86aafc8180a539",
+      "type": "NoFilter"
+    }
+  ]
+}

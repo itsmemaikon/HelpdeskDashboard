@@ -1,0 +1,43 @@
+table dMetrica
+	lineageTag: 27294f20-237b-448e-a862-438fb72b7c17
+
+	column 'ID Métrica'
+		dataType: int64
+		formatString: 0
+		lineageTag: e9cc0fc2-403f-44ad-9e84-7640967d7db3
+		summarizeBy: sum
+		sourceColumn: ID Métrica
+
+		annotation SummarizationSetBy = Automatic
+
+	column Métrica
+		dataType: string
+		lineageTag: 788374c9-2bbb-4dcf-9465-436d18d123b5
+		summarizeBy: none
+		sourceColumn: Métrica
+		sortByColumn: 'ID Métrica'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cor Visual 1'
+		dataType: string
+		lineageTag: fbfa7be3-3546-405a-b55b-fc0d29043741
+		summarizeBy: none
+		sourceColumn: Cor Visual 1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dMetrica-98379703-c658-4051-bd41-a1ec8fcd78c1 = m
+		mode: import
+		queryGroup: Dimensões
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUQrJL0nMUXDOSMxNTMkvBgoomzhauLg4K8XqRCsZAfkwKQXXvOTUoiKYKjdjZ0tDQ7AqY2RVjkmpRSUQJS7Opk6m5mAlJkB+sI+jgmNJal5KZko+SNrY2NHVAmKCKVTataKkKLEgPycRosLFxdLQ1E0pNhYA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"ID Métrica" = _t, Métrica = _t, #"Cor Visual 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"ID Métrica", Int64.Type}, {"Métrica", type text}, {"Cor Visual 1", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

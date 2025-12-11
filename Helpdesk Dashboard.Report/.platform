@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Helpdesk Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "971b09f0-39c4-403e-a92a-6e4a86eabd98"
+  }
+}

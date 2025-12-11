@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "71563b9eb2b912c3143c",
+  "position": {
+    "x": 885.2863436123348,
+    "y": 149.99118942731278,
+    "z": 5000,
+    "height": 250.3612334801762,
+    "width": 365,
+    "tabOrder": 6000
+  },
+  "visualGroup": {
+    "displayName": "Gráfico Motivos",
+    "groupMode": "ScaleMode"
+  }
+}

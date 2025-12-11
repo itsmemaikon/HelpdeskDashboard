@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "6d28315662ea1ab344c8",
+  "position": {
+    "x": 264.53333333333336,
+    "y": 29.013333333333332,
+    "z": 10000,
+    "height": 105.98666666666666,
+    "width": 230.46666666666664,
+    "tabOrder": 1000
+  },
+  "visualGroup": {
+    "displayName": "Cartão Total",
+    "groupMode": "ScaleMode"
+  }
+}

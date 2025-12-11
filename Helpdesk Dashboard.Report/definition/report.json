@@ -1,0 +1,173 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.0.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY22SU09",
+      "reportVersionAtImport": {
+        "visual": "1.8.75",
+        "report": "2.0.75",
+        "page": "1.3.75"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Classroom9916658700429191.json",
+      "reportVersionAtImport": {
+        "visual": "1.8.75",
+        "report": "2.0.75",
+        "page": "1.3.75"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY22SU09",
+          "path": "BaseThemes/CY22SU09.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Classroom9916658700429191.json",
+          "path": "Classroom9916658700429191.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "help-desk4931088912212498.png",
+          "path": "help-desk4931088912212498.png",
+          "type": "Image"
+        },
+        {
+          "name": "help-desk3250867778883888.png",
+          "path": "help-desk3250867778883888.png",
+          "type": "Image"
+        },
+        {
+          "name": "brightness4527477738540038.png",
+          "path": "brightness4527477738540038.png",
+          "type": "Image"
+        },
+        {
+          "name": "night-mode0928349640075039.png",
+          "path": "night-mode0928349640075039.png",
+          "type": "Image"
+        },
+        {
+          "name": "ferramenta-de-service-desk7652288985448812.jpg",
+          "path": "ferramenta-de-service-desk7652288985448812.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "help-desk7859157623452369.png",
+          "path": "help-desk7859157623452369.png",
+          "type": "Image"
+        },
+        {
+          "name": "youtube5923325373805106.png",
+          "path": "youtube5923325373805106.png",
+          "type": "Image"
+        },
+        {
+          "name": "linkedin3810835473974077.png",
+          "path": "linkedin3810835473974077.png",
+          "type": "Image"
+        },
+        {
+          "name": "home48733965503952725.png",
+          "path": "home48733965503952725.png",
+          "type": "Image"
+        },
+        {
+          "name": "analytics16277824869427326.png",
+          "path": "analytics16277824869427326.png",
+          "type": "Image"
+        },
+        {
+          "name": "table-grid5613429062462802.png",
+          "path": "table-grid5613429062462802.png",
+          "type": "Image"
+        },
+        {
+          "name": "home6763807965439048.png",
+          "path": "home6763807965439048.png",
+          "type": "Image"
+        },
+        {
+          "name": "analytics321453144372438.png",
+          "path": "analytics321453144372438.png",
+          "type": "Image"
+        },
+        {
+          "name": "table-grid29782759995523267.png",
+          "path": "table-grid29782759995523267.png",
+          "type": "Image"
+        },
+        {
+          "name": "linkedin8308889746530885.png",
+          "path": "linkedin8308889746530885.png",
+          "type": "Image"
+        },
+        {
+          "name": "youtube14972251712842577.png",
+          "path": "youtube14972251712842577.png",
+          "type": "Image"
+        },
+        {
+          "name": "linkedin2590768729578201.png",
+          "path": "linkedin2590768729578201.png",
+          "type": "Image"
+        },
+        {
+          "name": "youtube8631621543818138.png",
+          "path": "youtube8631621543818138.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

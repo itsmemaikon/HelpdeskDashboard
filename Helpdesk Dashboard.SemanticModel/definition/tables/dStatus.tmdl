@@ -1,0 +1,34 @@
+table dStatus
+	lineageTag: b88ab525-db06-4316-9e24-56a2b4b6c711
+
+	column 'ID Status'
+		dataType: int64
+		formatString: 0
+		lineageTag: 04876302-d70b-40ba-a9bb-c574baceb748
+		summarizeBy: none
+		sourceColumn: ID Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: c9334480-39a2-4ee7-a185-1fa93f6145ae
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dStatus-74490551-7ab4-4866-8bf1-81571db6c98a = m
+		mode: import
+		queryGroup: Dimensões
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents(pBaseDados & "\Base de Dados.xlsx"), null, true),
+				    fChamados_Sheet = Fonte{[Item="dStatus",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(fChamados_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ID Status", Int64.Type}, {"Status", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+
